@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -18,7 +18,6 @@ import {
   doc,
   updateDoc,
   query,
-  where,
   Timestamp,
   orderBy,
   increment
@@ -78,8 +77,6 @@ function App() {
   }
   
   const onGetProducts = async (field, order) => {
-    console.log(field, order);
-
     const q = query(
       collection(db, "products"),
       orderBy(field, order),
@@ -95,21 +92,16 @@ function App() {
       }
     });
     setProducts(saveProduct);
-    console.log(saveProduct);
   }
 
   const onGetProduct = async (id) => {
-    // console.log(id);
     const docRef = doc(db, "products", id);
     const docSnap = await getDoc(docRef);
 
     if(docSnap.exists()) {
-      // console.log("Document data:", docSnap.data());
-      // console.log(docSnap.id);
       const docId = { id: docSnap.id };
       setProduct(Object.assign(docId, docSnap.data()));
     } else {
-      // doc.data() will be undefined in this case
       console.log("No such document!");
     }
   }
@@ -128,7 +120,6 @@ function App() {
   }
 
   const onGetBalance = async () => {
-    console.log('get balance')
     const docRef = doc(db, "balance", "balance1001");
     const docSnap = await getDoc(docRef);
 

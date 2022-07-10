@@ -9,14 +9,6 @@ const DetailProduct = ({ product, deleteProduct, getProduct }) => {
     getProduct(id);
   }, [id]);
 
-  // const product = products.find((product) => String(product.id) == id);
-  // console.log(product);
-  // console.log(new Date(product.createdAt.seconds * 1000));
-
-  // const convertDate = (timestamp) => {
-  //   return new Date(timestamp * 1000).toLocaleDateString('en-US').toString();
-  // }
-
   const showFormattedDate = (date) => {
     const options = {
       weekday: "long",
@@ -32,7 +24,7 @@ const DetailProduct = ({ product, deleteProduct, getProduct }) => {
     {
       product.length !== 0 &&
       <div className='row d-flex align-items-center'>
-        <div className='col-md-6 mb-3 d-flex justify-content-end'>
+        <div className='col-md-6 mb-3 d-flex justify-content-end-md'>
           <img src={product.image} alt={product.name} className='rounded' height={450} width={400} style={{ objectFit: 'cover',  objectPosition: 'center' }}/>
         </div>
 
@@ -55,4 +47,4 @@ const DetailProduct = ({ product, deleteProduct, getProduct }) => {
   )
 }
 
-export default DetailProduct
+export default DetailProduct;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const AddProduct = ({ addProduct, percentUp }) => {
 
@@ -68,44 +68,9 @@ const AddProduct = ({ addProduct, percentUp }) => {
             </div>
           </div>
         </div>
-        <div className='col'>
-          <div className='card'>
-            <div className='card-body'>
-              <p><b>Dipost oleh</b></p>
-              <div className='d-flex align-items-center'>
-                <div className='flex-shrink-0'>
-                  <img width="62" height="62" src='https://dummyimage.com/50x50/000/ffffff.png' alt='' className='rounded-circle' />
-                </div>
-                <div className='flex-grow-1 ms-3'>
-                  <h6><b>{}</b></h6>
-                  <small className='text-muted'>@{}</small>
-                </div>
-              </div>
-              <small><b>{}</b></small>
-            </div>
-          </div>
-
-
-          <div className='card mt-3'>
-            <div className='card-body'>
-              <div className='d-flex'>
-                <div className='p-2 flex-grow-1'>
-                  <p>Nilai Pekerjaan</p>
-                  <p>Komisi 10%</p>
-                  <p>Anda bayar</p>
-                </div>
-                <div className="p-2">
-                  <p>100.000 IDR</p>
-                  <p>110.000 IDR</p>
-                  <p>110.000 IDR</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   )
 }
 
-export default AddProduct
+export default AddProduct;

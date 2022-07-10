@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import Card from '../components/Card'
+import React, { useEffect, useState } from 'react';
+import Card from '../components/Card';
 
 const Store = ({ products, getProducts }) => {
 
@@ -17,13 +17,13 @@ const Store = ({ products, getProducts }) => {
         <form>
           <div className='row'>
             <div className='col'>
-              <select value={field} onChange={(e) => setField(e.target.value)} class="form-select" aria-label="Default select example">
+              <select value={field} onChange={(e) => setField(e.target.value)} className="form-select" aria-label="Default select example">
                 <option value="name">Nama</option>
                 <option value="createdAt">Tanggal</option>
               </select>
             </div>
             <div className='col'>
-              <select value={order} onChange={(e) => setOrder(e.target.value)} class="form-select" aria-label="Default select example">
+              <select value={order} onChange={(e) => setOrder(e.target.value)} className="form-select" aria-label="Default select example">
                 <option value="asc">Ascending</option>
                 <option value="desc">Descending</option>
               </select>
@@ -49,4 +49,4 @@ const Store = ({ products, getProducts }) => {
   )
 }
 
-export default Store
+export default Store;

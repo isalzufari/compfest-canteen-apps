@@ -93,4 +93,4 @@ const CanteenBalance = ({ balance, getBalance, addBalance, withdrawBalance }) =>
   )
 }
 
-export default CanteenBalance
+export default CanteenBalance;

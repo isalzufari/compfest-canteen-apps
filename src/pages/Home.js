@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from '../components/Card';
 
 const Home = () => {
   return (
@@ -16,27 +15,9 @@ const Home = () => {
             <img src="https://dummyimage.com/500x500/000/ffffff.png" className="card-img-top" alt="..." />
           </div>
         </div>
-
-        {/* Pengrajin Section */}
-        <div className="container d-inline-flex mt-5 justify-content-between">
-          <h3>Store</h3>
-          <a style={{ cursor: "pointer", textDecoration: "none" }} className="text-success" href="/store"><h5 style={{ cursor: "pointer" }} className="text-success cursor-pointer">Lihat Semua</h5></a>
-        </div>
-        <div className="container">
-          <div className="row">
-            {/* {dataPengrajin.map((val, id) => {
-              return (
-                <div className="col-sm-3">
-                  <CardUser name={val.nama} kota={val.kota} />
-                </div>
-              )
-            })} */}
-              {/* <Card /> */}
-          </div>
-        </div>
       </div>
     </>
   )
 }
 
-export default Home
+export default Home;
