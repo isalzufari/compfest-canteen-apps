@@ -11,8 +11,9 @@ Kantin Kejujuran. it consists of some items for sale by students and a box to st
 
 ### What used the technologies :
 <ul>
-    <li>Front-End: React for front end website</li>
+    <li>Front-End: React for front end website </li>
     <li>Back-End: Firebase for Storage and database </li>
+    <li>Hosting: Heroku </li>
 </ul>
 
 # Install and Run the Project
@@ -39,7 +40,8 @@ Your app is ready to be deployed!
 # Credit
 Thanks to :
 <ul>
-<li>Firebase Documentation: https://firebase.google.com/docs</li>
-<li>Stackoverflow: https://stackoverflow.com</li>
-<li>Me: @isalzufari</li>
+    <li>Firebase Documentation: https://firebase.google.com/docs</li>
+    <li>Stackoverflow: https://stackoverflow.com</li>
+    <li>Heroku: https://heroku.com</li>
+    <li>Me: @isalzufari</li>
 </ul>
