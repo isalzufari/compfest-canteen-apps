@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { changeToIdr } from '../utils/utils';
 
 const DetailProduct = ({ product, deleteProduct, getProduct }) => {
   let params = useParams();
@@ -31,7 +32,7 @@ const DetailProduct = ({ product, deleteProduct, getProduct }) => {
         <div className='col'>
           <h1>{product.name}</h1>
           <p>{product.desc}</p>
-          <p>{product.price}</p>
+          <p>{changeToIdr(product.price)}</p>
           <p>{showFormattedDate(product.createdAt.seconds)}</p>
 
           <div className='d-grip gap-2'>
