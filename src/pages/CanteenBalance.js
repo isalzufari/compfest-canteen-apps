@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { changeToIdr, inputIdr } from '../utils/utils';
+import { changeToIdr } from '../utils/utils';
 
 const CanteenBalance = ({ balance, getBalance, addBalance, withdrawBalance }) => {
   const [add, setAdd] = useState(0);
