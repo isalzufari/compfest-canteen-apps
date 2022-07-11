@@ -92,6 +92,7 @@ function App() {
       }
     });
     setProducts(saveProduct);
+    setProduct([]);
   }
 
   const onGetProduct = async (id) => {
