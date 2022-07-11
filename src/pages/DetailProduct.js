@@ -47,7 +47,7 @@ const DetailProduct = ({ product, deleteProduct, getProduct }) => {
           <span className='placeholder col-12'></span>
           <span className='placeholder col-12'></span>
 
-          <span href="#" tabindex="-1" class="btn btn-success disabled placeholder col-6 mt-3"></span>
+          <span href="#" tabIndex="-1" className="btn btn-success disabled placeholder col-6 mt-3"></span>
         </div>
       </div>
     }
