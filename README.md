@@ -7,6 +7,7 @@ Kantin Kejujuran. it consists of some items for sale by students and a box to st
 <ul>
     <li>Create, Delete product</li>
     <li>Add and withdraw money</li>
+    <li>Login, Registration</li>
 </ul>
 
 ### What used the technologies :
