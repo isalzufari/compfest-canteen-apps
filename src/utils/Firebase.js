@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, getDoc, query, where, Timestamp, orderBy, increment } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, doc, updateDoc, getDoc, query, where, Timestamp, orderBy, increment, setDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -36,5 +36,6 @@ export {
  where,
  Timestamp,
  orderBy,
- increment
+ increment,
+ setDoc
 };

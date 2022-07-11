@@ -26,9 +26,18 @@ const DetailProduct = ({ product, deleteProduct, getProduct }) => {
           <p>{showFormattedDate(product.createdAt.seconds)}</p>
 
           <div className='d-grip gap-2'>
-            <button type='button' onClick={() => deleteProduct(product.id)} className='btn btn-outline-success'>
-              Buy
-            </button>
+            { 
+              localStorage.getItem('isLoggedIn') && 
+              <button type='button' onClick={() => deleteProduct(product.id)} className='btn btn-outline-success'>
+                Buy
+              </button>
+            }
+            { 
+              !localStorage.getItem('isLoggedIn') && 
+              <a href='/login' className='btn btn-outline-primary'>
+                Login
+              </a>
+            }
           </div>
         </div>
       </div>

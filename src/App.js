@@ -20,7 +20,8 @@ import {
   query,
   Timestamp,
   orderBy,
-  increment
+  increment,
+  setDoc
 } from './utils/Firebase';
 
 // Component
@@ -33,13 +34,15 @@ import Store from "./pages/Store";
 import AddProduct from "./pages/AddProduct";
 import DetailProduct from "./pages/DetailProduct";
 import CanteenBalance from "./pages/CanteenBalance";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [product, setProduct] = useState([]);
   const [percent, setPercent] = useState(0);
   const [balance, setBalance] = useState(0);
-
+  
   const onAddProduct = ({ nameProduct, image, desc, price }) => {
     const storageRef = ref(sg, `/products/${image.name}`);
     const uploadTask = uploadBytesResumable(storageRef, image);
@@ -153,11 +156,76 @@ function App() {
     }).catch(error => {
       console.log(error);
     })
-  } 
+  }
+
+  const idValidation = async (studentId) => {
+    // StudentId Validation. Only Validated ID Can register to the canteen
+    let id = 0;
+    const value = studentId.split('');
+    value.forEach((e) => {
+      id = id + Number(e);
+    });
+
+    const studId = studentId + ('0' + id).slice(-2);
+    return studId;
+  }
+
+  const onRegister = async ({ studentId, password, nameStud }) => {
+    const studId = await idValidation(studentId);
+
+    // Should make sure the ID is not registered yet in the system
+    const docRef = doc(db, "users", studId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      console.log("Ada");
+    } else {
+      try {
+        await setDoc(doc(db, "users", studId.toString()), {
+          name: nameStud,
+          password: password,
+        });
+        console.log("Success adding document");
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    }
+  }
+
+  const onLogin = async ({ studentId, password }) => {
+    const studId = await idValidation(studentId);
+
+    const docRef = doc(db, "users", studId);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      if (docSnap.data().password === password) {
+        console.log("passowrd sama");
+
+        const isSignedIn = {
+          loggedIn: true,
+          nameProfile: docSnap.data().name,
+        }
+
+        localStorage.setItem('isLoggedIn', JSON.stringify(isSignedIn));
+        console.log(JSON.parse(localStorage.getItem('isLoggedIn')).nameProfile);
+        window.location.href='/';
+      } else {
+        alert("Password not match!")
+      }
+    } else {
+      alert("Student ID Not registered")
+    }
+  }
+
+  const onlogOut = () => {
+    localStorage.removeItem("isLoggedIn");
+    window.location.href='/';
+  }
 
   return (
     <BrowserRouter>
-      <Navbar Link={Link} />
+      <Navbar Link={Link} onlogOut={onlogOut} />
         <div className="container">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -165,6 +233,8 @@ function App() {
             <Route path="store/:name" element={<DetailProduct product={product} getProduct={onGetProduct} deleteProduct={onSafeDeleteProduct} />} />
             <Route path="balance" element={<CanteenBalance getBalance={onGetBalance} balance={balance} addBalance={onAddBalance} withdrawBalance={onWithdrawBalance} />} /> 
             <Route path="add-product" element={<AddProduct addProduct={onAddProduct} percentUp={percent} />} />
+            <Route path="login" element={<Login Link={Link} onLogin={onLogin} />} />
+            <Route path="register" element={<Register Link={Link} onRegister={onRegister} />} />
           </Routes>
         </div>
       <Footer />
