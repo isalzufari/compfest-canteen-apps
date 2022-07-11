@@ -54,7 +54,6 @@ function App() {
 
       // update Progress
       setPercent(percent);
-      console.log(percent);
     }, (err) => console.log(err), () => {
         // download url
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
@@ -69,7 +68,7 @@ function App() {
               isDeleted: false
             });
       
-            console.log("Document writter with ID: ", docRef.id);
+            console.log("Document added successfuly");
           } catch (e) {
             console.error("Error adding document: ", e);
           }
@@ -178,7 +177,7 @@ function App() {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      console.log("Ada");
+      console.log("ID has registerd");
     } else {
       try {
         await setDoc(doc(db, "users", studId.toString()), {
@@ -200,7 +199,6 @@ function App() {
 
     if (docSnap.exists()) {
       if (docSnap.data().password === password) {
-        console.log("passowrd sama");
 
         const isSignedIn = {
           loggedIn: true,
@@ -208,7 +206,6 @@ function App() {
         }
 
         localStorage.setItem('isLoggedIn', JSON.stringify(isSignedIn));
-        console.log(JSON.parse(localStorage.getItem('isLoggedIn')).nameProfile);
         window.location.href='/';
       } else {
         alert("Password not match!")
