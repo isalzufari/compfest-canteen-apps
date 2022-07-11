@@ -5,7 +5,7 @@ const Footer = () => {
     <div className='mt-5'>
       <footer className="footer mt-auto py-3 border-top">
         <div className="container text-center">
-          <span className="text-muted">Copyright © 2022 | Canteent</span>
+          <span className="text-muted">Copyright © 2022 | Canteen's & Co</span>
         </div>
       </footer>
     </div>

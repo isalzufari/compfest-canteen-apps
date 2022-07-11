@@ -4,7 +4,7 @@ const Navbar = ({ Link }) => {
   return (
     <header className="py-3 mb-3 border-bottom">
       <div className="container d-grid gap-3 align-items-center" style={{ gridTemplateColumns: "1fr 2fr" }}>
-        <h4><b>Canteent</b></h4>
+        <h4><b>Canteen's & Co</b></h4>
 
         <div className="d-flex align-items-center">
           <div className="p-2 w-100" role="search">
